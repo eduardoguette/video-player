@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  font-size: 16px;
+  --font-basic: Inter, sans-serif;
+}
+* {
+  font-family: var(--font-basic);
+}
+body {
+  background: rgb(43, 43, 43);
+  color: white;
+}
+.button {
+  /* border: 10px solid red; */
+  block-size: 32px;
+  inline-size: 32px;
+  background: transparent;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+#play {
+  background-image: url("../images/play.svg");
+}
+#backward {
+  background-image: url("../images/backward.svg");
+}
+#forward {
+  background-image: url("../images/forward.svg");
+}
+#pause {
+  background-image: url("../images/pause.svg");
+}
+.wrapper {
+  max-inline-size: 900px;
+  margin: auto;
+}
+button:active {
+  transform: scale(0.9);
+}
+.player {
+  position: relative;
+  /* border: 10px solid red; */
+}
+
+.title {
+  position: absolute;
+  inset-inline-start: 20px;
+  inset-block-start: 0px;
+  opacity: 0;
+}
+.player video {
+  inline-size: 100%;
+  aspect-ratio: 16/9;
+  vertical-align: middle;
+  object-fit: cover;
+}
+.player-actions {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.player-progess {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  display: flex;
+  padding: 10px;
+  opacity: 0;
+}
+.player:hover :is(.title, .player-progess, .player-actions) {
+  opacity: 1;
+}
+
+.player-progess input {
+  flex: 1;
+  cursor: pointer;
+  height: 0.2rem;
+}
